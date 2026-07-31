@@ -8,7 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.indianmesh.database.entity.KeyEntity;
+import com.indianmesh.database.entity.KeyPairEntity;
 
 import java.util.List;
 
@@ -20,46 +20,46 @@ import java.util.List;
 public interface KeyDao {
 
     /**
-     * Inserts a new key or replaces an existing one.
+     * Inserts a new key record or replaces an existing one.
      *
      * @param key The key entity to insert.
      * @return The row ID of the newly inserted key.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insert(KeyEntity key);
+    long insert(KeyPairEntity key);
 
     /**
-     * Updates an existing key.
+     * Updates an existing key record.
      *
      * @param key The key entity to update.
      * @return The number of rows updated.
      */
     @Update
-    int update(KeyEntity key);
+    int update(KeyPairEntity key);
 
     /**
-     * Deletes a key.
+     * Deletes a key record.
      *
      * @param key The key entity to delete.
      * @return The number of rows deleted.
      */
     @Delete
-    int delete(KeyEntity key);
+    int delete(KeyPairEntity key);
 
     /**
-     * Retrieves a key by its ID.
+     * Retrieves a key record by its ID.
      *
-     * @param keyId The ID of the key.
+     * @param keyId The ID of the key record.
      * @return The key entity, or null if not found.
      */
     @Query("SELECT * FROM keys WHERE key_id = :keyId LIMIT 1")
-    KeyEntity getKeyById(String keyId);
+    KeyPairEntity getKeyById(String keyId);
 
     /**
-     * Retrieves all keys.
+     * Retrieves all key records.
      *
      * @return A list of all key entities.
      */
     @Query("SELECT * FROM keys")
-    List<KeyEntity> getAllKeys();
+    List<KeyPairEntity> getAllKeys();
 }

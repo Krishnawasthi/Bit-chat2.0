@@ -8,13 +8,13 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.indianmesh.database.entity.QueueEntity;
+import com.indianmesh.database.entity.MessageQueueEntity;
 
 import java.util.List;
 
 /**
- * Data Access Object for the Queue entity.
- * Provides methods for performing CRUD operations on the queues table.
+ * Data Access Object for the Message Queue.
+ * Provides methods for performing CRUD operations on the message_queue table.
  */
 @Dao
 public interface QueueDao {
@@ -22,29 +22,29 @@ public interface QueueDao {
     /**
      * Inserts a new queue item or replaces an existing one.
      *
-     * @param queueItem The queue entity to insert.
+     * @param queueItem The queue item to insert.
      * @return The row ID of the newly inserted queue item.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insert(QueueEntity queueItem);
+    long insert(MessageQueueEntity queueItem);
 
     /**
      * Updates an existing queue item.
      *
-     * @param queueItem The queue entity to update.
+     * @param queueItem The queue item to update.
      * @return The number of rows updated.
      */
     @Update
-    int update(QueueEntity queueItem);
+    int update(MessageQueueEntity queueItem);
 
     /**
      * Deletes a queue item.
      *
-     * @param queueItem The queue entity to delete.
+     * @param queueItem The queue item to delete.
      * @return The number of rows deleted.
      */
     @Delete
-    int delete(QueueEntity queueItem);
+    int delete(MessageQueueEntity queueItem);
 
     /**
      * Retrieves a queue item by its ID.
@@ -52,22 +52,22 @@ public interface QueueDao {
      * @param queueId The ID of the queue item.
      * @return The queue entity, or null if not found.
      */
-    @Query("SELECT * FROM queues WHERE queue_id = :queueId LIMIT 1")
-    QueueEntity getQueueById(String queueId);
+    @Query("SELECT * FROM message_queue WHERE id = :queueId LIMIT 1")
+    MessageQueueEntity getQueueById(String queueId);
 
     /**
-     * Retrieves all pending queue items ordered by priority and timestamp.
+     * Retrieves all pending queue items.
      *
      * @return A list of all pending queue entities.
      */
-    @Query("SELECT * FROM queues WHERE status = 'PENDING' ORDER BY priority DESC, created_at ASC")
-    List<QueueEntity> getPendingQueueItems();
+    @Query("SELECT * FROM message_queue WHERE status = 'PENDING' ORDER BY created_at ASC")
+    List<MessageQueueEntity> getPendingQueueItems();
 
     /**
      * Retrieves all queue items.
      *
      * @return A list of all queue entities.
      */
-    @Query("SELECT * FROM queues")
-    List<QueueEntity> getAllQueueItems();
+    @Query("SELECT * FROM message_queue ORDER BY created_at ASC")
+    List<MessageQueueEntity> getAllQueueItems();
 }

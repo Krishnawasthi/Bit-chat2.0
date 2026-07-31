@@ -40,6 +40,7 @@ import com.indianmesh.database.entity.PollVoteEntity;
 import com.indianmesh.database.entity.ReactionEntity;
 import com.indianmesh.database.entity.RoutingTableEntity;
 import com.indianmesh.database.entity.ScheduledMessageEntity;
+import com.indianmesh.database.entity.SearchEntity;
 import com.indianmesh.database.entity.SessionEntity;
 import com.indianmesh.database.entity.StarredMessageEntity;
 import com.indianmesh.database.entity.UserEntity;
@@ -67,6 +68,7 @@ import com.indianmesh.database.entity.UserEntity;
         ReactionEntity.class,
         RoutingTableEntity.class,
         ScheduledMessageEntity.class,
+        SearchEntity.class,
         SessionEntity.class,
         StarredMessageEntity.class,
         UserEntity.class

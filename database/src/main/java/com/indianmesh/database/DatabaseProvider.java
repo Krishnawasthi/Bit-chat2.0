@@ -8,8 +8,8 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.room.Room;
 
-import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SupportFactory;
+import net.zetetic.database.sqlcipher.SQLiteDatabase;
+import net.zetetic.database.sqlcipher.SupportFactory;
 
 /**
  * Singleton provider for {@link MeshDatabase}.
