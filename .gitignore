@@ -1,0 +1,45 @@
+# Indian Mesh — Git Ignore
+# ─────────────────────────────────────────────────────────────────────
+
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Android
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Signing
+*.jks
+*.keystore
+signing.properties
+
+# Logs
+*.log
+
+# Coverage
+jacoco/
+coverage/
+
+# Lint
+lint-report/
