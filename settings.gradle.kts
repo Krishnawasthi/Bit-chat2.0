@@ -59,6 +59,7 @@ include(":wifi")
 
 // ── Mesh routing, relay, and discovery ──────────────────────────────
 include(":mesh")
+include(":routing")
 
 // ── UI module (Fragments, ViewModels, navigation) ───────────────────
 include(":ui")
