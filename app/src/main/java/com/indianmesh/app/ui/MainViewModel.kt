@@ -47,7 +47,7 @@ class MainViewModel @Inject constructor(
     private suspend fun fetchUsers() {
         withContext(Dispatchers.IO) {
             try {
-                val allUsers = userDao.allUsers // We'll stub this list fetching safely
+                val allUsers = userDao.getAllUsers() // Stub list fetching safely
                 _users.value = allUsers ?: emptyList()
             } catch (e: Exception) {
                 // Ignore empty db exceptions for now
