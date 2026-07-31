@@ -106,7 +106,7 @@ public final class MeshConfig {
 
         @NonNull
         public Builder setMaxRetryCount(int maxRetryCount) {
-            this.maxRetryCount = Preconditions.checkArgument(maxRetryCount >= 0, "maxRetryCount cannot be negative") ? maxRetryCount : this.maxRetryCount;
+            Preconditions.checkArgument(maxRetryCount >= 0, "maxRetryCount cannot be negative");
             this.maxRetryCount = maxRetryCount;
             return this;
         }
