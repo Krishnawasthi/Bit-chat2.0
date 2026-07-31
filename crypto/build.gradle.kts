@@ -17,6 +17,6 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":domain"))
-    implementation(libs.bouncycastle.provider) // If needed, though Android Keystore often suffices
+    implementation(libs.bouncycastle.prov) // If needed, though Android Keystore often suffices
     testImplementation(libs.bundles.testing.unit)
 }

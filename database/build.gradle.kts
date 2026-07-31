@@ -28,7 +28,7 @@ dependencies {
     
     // SQLCipher
     implementation(libs.sqlcipher)
-    implementation(libs.sqlite.framework)
+    implementation(libs.sqlite)
 
     testImplementation(libs.bundles.testing.unit)
 }
