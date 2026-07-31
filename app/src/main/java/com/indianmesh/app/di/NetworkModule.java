@@ -21,13 +21,16 @@ public class NetworkModule {
     @Provides
     @Singleton
     public DeviceDiscoverer provideDeviceDiscoverer(@ApplicationContext Context context) {
-        return new BleDiscoverer();
+        android.bluetooth.BluetoothManager bluetoothManager = (android.bluetooth.BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
+        android.bluetooth.BluetoothAdapter bluetoothAdapter = bluetoothManager != null ? bluetoothManager.getAdapter() : null;
+        return new BleDiscoverer(bluetoothAdapter);
     }
 
     @Provides
     @Singleton
     public ConnectionManager provideConnectionManager(@ApplicationContext Context context) {
-        return new BleConnectionManager();
+        android.bluetooth.BluetoothManager bluetoothManager = (android.bluetooth.BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
+        return new BleConnectionManager(context, bluetoothManager);
     }
 
     @Provides

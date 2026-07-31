@@ -54,6 +54,10 @@ dependencies {
     implementation(libs.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
 
+    // UI & DB
+    implementation(libs.androidx.appcompat)
+    implementation(libs.room.runtime)
+
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
