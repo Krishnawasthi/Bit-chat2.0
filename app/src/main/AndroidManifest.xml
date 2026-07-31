@@ -10,7 +10,7 @@
         android:allowBackup="true"
         android:label="Indian Mesh"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight">
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
         
         <activity
             android:name=".ui.MainActivity"
