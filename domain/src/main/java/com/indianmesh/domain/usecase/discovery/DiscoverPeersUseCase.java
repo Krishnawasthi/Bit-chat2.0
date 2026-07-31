@@ -31,7 +31,7 @@ public class DiscoverPeersUseCase {
      */
     public CompletableFuture<Result<List<Peer>, Exception>> execute() {
         return peerRepository.getNearbyPeers()
-                .thenApply(Result::success)
-                .exceptionally(ex -> Result.failure(new Exception(ex)));
+                .thenApply(v -> Result.<List<Peer>, Exception>success(v))
+                .exceptionally(ex -> Result.failure(ex instanceof Exception ? (Exception) ex : new Exception(ex)));
     }
 }

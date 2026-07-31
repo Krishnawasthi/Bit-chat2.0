@@ -31,7 +31,7 @@ public class GetConversationsUseCase {
      */
     public CompletableFuture<Result<List<Conversation>, Exception>> execute() {
         return conversationRepository.getAllConversations()
-                .thenApply(Result::success)
-                .exceptionally(ex -> Result.failure(new Exception(ex)));
+                .thenApply(v -> Result.<List<Conversation>, Exception>success(v))
+                .exceptionally(ex -> Result.failure(ex instanceof Exception ? (Exception) ex : new Exception(ex)));
     }
 }

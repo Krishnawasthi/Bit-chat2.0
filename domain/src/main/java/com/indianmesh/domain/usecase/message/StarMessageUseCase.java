@@ -36,7 +36,7 @@ public class StarMessageUseCase {
         }
         
         return messageRepository.starMessage(messageId, starred)
-                .thenApply(Result::success)
-                .exceptionally(ex -> Result.failure(new Exception(ex)));
+                .thenApply(v -> Result.<Void, Exception>success(v))
+                .exceptionally(ex -> Result.failure(ex instanceof Exception ? (Exception) ex : new Exception(ex)));
     }
 }

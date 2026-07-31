@@ -36,7 +36,7 @@ public class SearchMessagesUseCase {
         }
         
         return messageRepository.searchMessages(query)
-                .thenApply(Result::success)
-                .exceptionally(ex -> Result.failure(new Exception(ex)));
+                .thenApply(v -> Result.<List<Message>, Exception>success(v))
+                .exceptionally(ex -> Result.failure(ex instanceof Exception ? (Exception) ex : new Exception(ex)));
     }
 }

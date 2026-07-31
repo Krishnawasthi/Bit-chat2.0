@@ -36,7 +36,7 @@ public class DeleteMessageUseCase {
         }
         
         return messageRepository.deleteMessage(messageId, forEveryone)
-                .thenApply(Result::success)
-                .exceptionally(ex -> Result.failure(new Exception(ex)));
+                .thenApply(v -> Result.<Void, Exception>success(v))
+                .exceptionally(ex -> Result.failure(ex instanceof Exception ? (Exception) ex : new Exception(ex)));
     }
 }
