@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Room;
 
 import net.zetetic.database.sqlcipher.SQLiteDatabase;
-import net.zetetic.database.sqlcipher.SupportFactory;
+import net.zetetic.database.sqlcipher.SupportOpenHelperFactory;
 
 /**
  * Singleton provider for {@link MeshDatabase}.
@@ -37,8 +37,9 @@ public final class DatabaseProvider {
         if (instance == null) {
             synchronized (DatabaseProvider.class) {
                 if (instance == null) {
-                    byte[] passphraseBytes = SQLiteDatabase.getBytes(passphrase);
-                    SupportFactory factory = new SupportFactory(passphraseBytes);
+                    System.loadLibrary("sqlcipher");
+                    byte[] passphraseBytes = new String(passphrase).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+                    SupportOpenHelperFactory factory = new SupportOpenHelperFactory(passphraseBytes);
 
                     instance = Room.databaseBuilder(
                             context.getApplicationContext(),
