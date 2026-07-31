@@ -26,6 +26,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.annotations)
+    api(libs.androidx.annotations)
     testImplementation(libs.bundles.testing.unit)
 }
