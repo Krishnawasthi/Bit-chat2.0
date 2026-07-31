@@ -79,8 +79,9 @@ fun ChatScreen(
                         .weight(1f)
                         .clip(RoundedCornerShape(24.dp)),
                     placeholder = { Text("Type a message...") },
-                    colors = TextFieldDefaults.textFieldColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent
                     )

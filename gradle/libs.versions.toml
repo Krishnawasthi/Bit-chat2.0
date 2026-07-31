@@ -175,7 +175,6 @@ robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectr
 arch-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "arch-core-testing" }
 test-runner = { module = "androidx.test:runner", version.ref = "test-runner" }
 test-rules = { module = "androidx.test:rules", version.ref = "test-rules" }
-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 
 [bundles]
